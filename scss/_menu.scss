@@ -36,3 +36,103 @@
     }
   }
 }
+
+// Menu Overlay
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  visibility: hidden;
+
+  &.show {
+    visibility: visible;
+  }
+
+  &-branding,
+  &-nav {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  &-nav {
+    margin: 0;
+    padding: 0;
+    background: rgba(darken($primary-color, 5), 0.7);
+    list-style: none;
+
+    // Position off screen (top) and apply easeOut
+    transform: translate3d(0, -100%, 0);
+    @include easeOut;
+
+    &.show {
+      // Position on screen
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &-branding {
+    background: rgba($primary-color, 0.7);
+
+    // Position off screen (bottom) and apply easeOut
+    transform: translate3d(0, 100%, 0);
+    @include easeOut;
+
+    &.show {
+      // Position on screen
+      transform: translate3d(0, 0, 0);
+    }
+
+    .portrait {
+      width: 250px;
+      height: 250px;
+      background: url("../img/portrait.jpg");
+      background-size: cover;
+      border-radius: 50%;
+      border: solid 3px $secondary-color;
+    }
+  }
+
+  .nav-item {
+    // Position off screen (right) and apply easeOut
+    transform: translate3d(600px, 0, 0);
+    @include easeOut;
+
+    &.show {
+      // Position on screen
+      transform: translate3d(0, 0, 0);
+    }
+
+    &.current > a {
+      color: $secondary-color;
+    }
+  }
+
+  .nav-link {
+    display: inline-block;
+    position: relative;
+    font-size: 2rem;
+    text-transform: uppercase;
+    padding: 1rem 0;
+    font-weight: 300;
+    color: #fff;
+    text-decoration: none;
+    @include easeOut;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+// Delay each nav item slide by 0.1s
+@for $x from 1 through 4 {
+  .nav-item:nth-child(#{$x}) {
+    transition-delay: $x * 0.1s;
+  }
+}
