@@ -7,6 +7,7 @@ const navItems = document.querySelectorAll('.nav-item');
 
 // Initialize menu state
 let showMenu = false;
+let pageLoaded = false;
 
 menuBtn.addEventListener('click', toggleMenu);
 
@@ -31,3 +32,20 @@ function toggleMenu() {
         showMenu = false;
     }
 }
+
+function toggleSpinner() {
+    if(!pageloaded) {
+        
+
+        pageLoaded = true;
+    } else {
+        
+
+        pageLoaded = false;
+    }
+}
+
+
+// window.onload = function() { // same as window.addEventListener('load', (event) => {
+//     alert('Page loaded');
+//   };
