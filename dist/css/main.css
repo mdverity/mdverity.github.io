@@ -148,11 +148,11 @@ main {
   min-height: calc(100vh - 60px); }
   main .icons {
     margin-top: 1rem; }
-  main a {
-    padding: 0.4rem; }
-    main a:hover {
-      color: #eece1a;
+    main .icons a {
+      padding: 0.4rem;
       transition: all 0.5s ease-out; }
+      main .icons a:hover {
+        color: #eece1a; }
   main#home {
     overflow: hidden; }
     main#home h1 {
@@ -182,6 +182,36 @@ main {
     background: #515151;
     padding: 0.5rem;
     border-bottom: #eece1a 5px solid; }
+
+.projects {
+  display: grid;
+  gap: 0.7rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .projects img {
+    width: 100%;
+    border: 3px #fff solid; }
+    .projects img:hover {
+      opacity: 0.5;
+      border: 3px #eece1a solid;
+      transition: all 0.5s ease-out; }
+
+.btn, .btn-dark, .btn-light {
+  display: block;
+  padding: 0.5rem 1rem;
+  border: 0;
+  margin-bottom: 0.3rem; }
+  .btn:hover, .btn-dark:hover, .btn-light:hover {
+    background-color: #eece1a;
+    color: #292929;
+    transition: all 0.5s ease-out; }
+
+.btn-dark {
+  background: black;
+  color: #fff; }
+
+.btn-light {
+  background: #c4c4c4;
+  color: #333; }
 
 #main-footer {
   text-align: center;
