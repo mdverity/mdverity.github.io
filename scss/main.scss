@@ -111,10 +111,14 @@ main {
 }
 
 // Work / Projects
-.projects {
+.project-box {
   display: grid;
   gap: 0.7rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+  div {
+    display: none;
+  }
 
   img {
     width: 100%;

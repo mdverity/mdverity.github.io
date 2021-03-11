@@ -11,6 +11,9 @@ let pageLoaded = false;
 
 menuBtn.addEventListener('click', toggleMenu);
 
+// window.addEventListener('load', toggleSpinner)
+setTimeout(toggleSpinner, 1500)
+
 function toggleMenu() {
     if(!showMenu) {
         menuBtn.classList.add('close');
@@ -34,13 +37,16 @@ function toggleMenu() {
 }
 
 function toggleSpinner() {
-    if(!pageloaded) {
-        
-
+    if(!pageLoaded) {
+        // document.querySelector('.projects').classList.remove(spinnerType)
+        document.querySelector('.project-box').classList.remove('spinner')
+        let projectItems = document.querySelectorAll('.project')
+        projectItems.forEach(item => item.style.display = 'inline');
         pageLoaded = true;
     } else {
-        
-
+        document.querySelector('.project-box').classList.add('spinner')
+        let projectItems = document.querySelectorAll('.project')
+        projectItems.forEach(item => item.style.display = 'none');
         pageLoaded = false;
     }
 }
