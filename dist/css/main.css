@@ -164,7 +164,7 @@ header {
   color: #eece1a; }
 
 main {
-  padding: 4rem;
+  padding: 10vh 10vw;
   min-height: calc(100vh - 60px); }
   main .icons {
     margin-top: 1rem; }
@@ -206,8 +206,8 @@ main {
 .project-box {
   display: grid;
   gap: 0.7rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-  .project-box div {
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
+  .project-box .project {
     display: none; }
   .project-box img {
     width: 100%;

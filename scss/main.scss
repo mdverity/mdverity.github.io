@@ -45,7 +45,7 @@ header {
 }
 
 main {
-  padding: 4rem;
+  padding: 10vh 10vw;
   min-height: calc(100vh - 60px);
 
   .icons {
@@ -114,9 +114,9 @@ main {
 .project-box {
   display: grid;
   gap: 0.7rem;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 
-  div {
+  .project {
     display: none;
   }
 

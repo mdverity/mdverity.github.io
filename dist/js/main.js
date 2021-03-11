@@ -41,7 +41,7 @@ function toggleSpinner() {
         // document.querySelector('.projects').classList.remove(spinnerType)
         document.querySelector('.project-box').classList.remove('spinner')
         let projectItems = document.querySelectorAll('.project')
-        projectItems.forEach(item => item.style.display = 'inline');
+        projectItems.forEach(item => item.style.display = 'initial');
         pageLoaded = true;
     } else {
         document.querySelector('.project-box').classList.add('spinner')
