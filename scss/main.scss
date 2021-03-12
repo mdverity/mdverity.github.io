@@ -19,13 +19,22 @@ h3 {
 
   &.lg-heading {
     font-size: 6rem;
+
+    .last-name {
+      display: inline-block;
+      white-space: nowrap;
+    }
   }
 
   &.sm-heading {
     margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 2rem;
     font-size: 1.6rem;
-    background: rgba(lighten($primary-color, 2), 0.5);
+    background: linear-gradient(
+      to right,
+      rgba(darken($primary-color, 5), 0.5),
+      rgba(darken($primary-color, 5), 0)
+    );
   }
 }
 
@@ -44,6 +53,14 @@ header {
   color: $secondary-color;
 }
 
+.text-tertiary {
+  color: $tertiary-color;
+}
+
+.text-reset {
+  color: set-text-color($primary-color);
+}
+
 main {
   padding: 10vh 10vw;
   min-height: calc(100vh - 60px);
@@ -56,13 +73,25 @@ main {
       @include easeOut;
 
       &:hover {
-        color: $secondary-color;
+        color: $tertiary-color;
       }
     }
   }
 
   &#home {
     overflow: hidden;
+
+    .text-tertiary {
+      color: $tertiary-color;
+      font-weight: 200;
+      font-size: 1.2em;
+      margin: -1rem;
+    }
+
+    .sm-heading {
+      color: $secondary-color;
+    }
+
     h1 {
       margin-top: 20vh;
     }
@@ -106,7 +135,8 @@ main {
   .job {
     background: lighten($primary-color, 5);
     padding: 0.5rem;
-    border-bottom: $secondary-color 5px solid;
+    border-bottom: $tertiary-color 5px solid;
+    box-shadow: 0px 10px 5px rgba(darken($primary-color, 5), 0.75);
   }
 }
 
@@ -117,12 +147,14 @@ main {
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
 
   .project {
-    display: none;
+    opacity: 0;
+    @include easeOut;
   }
 
   img {
     width: 100%;
     border: 3px #fff solid;
+    box-shadow: 0px 10px 5px rgba(darken($primary-color, 5), 0.75);
 
     &:hover {
       opacity: 0.5;
@@ -151,6 +183,7 @@ main {
       padding: 1.5rem 2.5rem;
       background: $secondary-color;
       color: set-text-color($secondary-color);
+      box-shadow: 0px 10px 5px -10px rgba(darken($primary-color, 5), 0.8);
 
       span {
         color: set-text-color($secondary-color);
@@ -163,7 +196,9 @@ main {
 .btn {
   display: block;
   padding: 0.5rem 1rem;
-  border: 0;
+  position: relative;
+  border: 1px darken($primary-color, 5) solid;
+  box-shadow: 0px 8px 5px -1px rgba(darken($primary-color, 5), 0.8);
   margin-bottom: 0.3rem;
 
   &:hover {
@@ -175,14 +210,14 @@ main {
 
 .btn-dark {
   @extend .btn;
-  background: darken($primary-color, 50);
-  color: #fff;
+  background: $tertiary-color;
+  color: set-text-color($primary-color);
 }
 
 .btn-light {
   @extend .btn;
   background: lighten($primary-color, 50);
-  color: #333;
+  color: $primary-color;
 }
 
 // Footer
@@ -196,6 +231,11 @@ main {
 
   a {
     padding: 0.5em;
+
+    &:hover {
+      @include easeOut;
+      color: lighten($tertiary-color, 10);
+    }
   }
 }
 

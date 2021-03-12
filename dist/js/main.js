@@ -41,12 +41,12 @@ function toggleSpinner() {
         // document.querySelector('.projects').classList.remove(spinnerType)
         document.querySelector('.project-box').classList.remove('spinner')
         let projectItems = document.querySelectorAll('.project')
-        projectItems.forEach(item => item.style.display = 'initial');
+        projectItems.forEach(item => item.style.opacity = "1");
         pageLoaded = true;
     } else {
         document.querySelector('.project-box').classList.add('spinner')
         let projectItems = document.querySelectorAll('.project')
-        projectItems.forEach(item => item.style.display = 'none');
+        projectItems.forEach(item => item.style.opacity = '0');
         pageLoaded = false;
     }
 }

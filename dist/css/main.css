@@ -12,9 +12,9 @@
   margin-top: -40px;
   margin-left: -40px;
   border-radius: 50%;
-  border: 4px solid #2b2b2b;
-  border-left-color: #eece1a;
-  border-right-color: #eece1a;
+  border: 4px solid rgba(9, 9, 9, 0.5);
+  border-left-color: #fab575;
+  border-right-color: #fab575;
   animation: spinner 1.5s linear infinite; }
 
 @keyframes spinner {
@@ -32,7 +32,7 @@
     width: 28px;
     height: 3px;
     margin: 0 0 5px 0;
-    background: #f6f6f6;
+    background: #e4e2dd;
     transition: all 0.5s ease-out; }
   .menu-btn.close {
     transform: rotate(180deg); }
@@ -62,14 +62,14 @@
   .menu-nav {
     margin: 0;
     padding: 0;
-    background: rgba(55, 55, 55, 0.8);
+    background: rgba(21, 21, 21, 0.8);
     list-style: none;
     transform: translate3d(0, -100%, 0);
     transition: all 0.5s ease-out; }
     .menu-nav.show {
       transform: translate3d(0, 0, 0); }
   .menu-branding {
-    background: rgba(68, 68, 68, 0.8);
+    background: rgba(34, 34, 34, 0.8);
     transform: translate3d(0, 100%, 0);
     transition: all 0.5s ease-out; }
     .menu-branding.show {
@@ -80,14 +80,15 @@
       background: url("../img/portrait.jpg");
       background-size: cover;
       border-radius: 50%;
-      border: solid 3px #eece1a; }
+      border: solid 3px #fab575; }
   .menu .nav-item {
     transform: translate3d(600px, 0, 0);
     transition: all 0.5s ease-out; }
     .menu .nav-item.show {
       transform: translate3d(0, 0, 0); }
     .menu .nav-item.current > a {
-      color: #eece1a; }
+      color: #fab575;
+      font-weight: 450; }
   .menu .nav-link {
     display: inline-block;
     position: relative;
@@ -95,11 +96,12 @@
     text-transform: uppercase;
     padding: 1rem 0;
     font-weight: 300;
-    color: #f6f6f6;
+    color: #e4e2dd;
     text-decoration: none;
     transition: all 0.5s ease-out; }
     .menu .nav-link:hover {
-      color: #eece1a; }
+      color: #fab575;
+      text-shadow: 0px 3px 3px #090909; }
 
 .nav-item:nth-child(1) {
   transition-delay: 0.1s; }
@@ -114,25 +116,38 @@
   transition-delay: 0.4s; }
 
 body {
-  background: #444;
-  color: #f6f6f6;
+  background: #222;
+  color: #e4e2dd;
   height: 100%;
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; }
-  body#bg-img {
+  body.bg-img {
     background: url(../img/background.jpg);
     background-attachment: fixed;
     background-size: cover; }
-    body#bg-img:after {
+    body.bg-img:after {
       content: "";
-      position: absolute;
+      position: fixed;
       top: 0;
       right: 0;
       width: 100%;
       height: 100%;
       z-index: -1;
-      background: rgba(68, 68, 68, 0.8); }
+      background: linear-gradient(#222222, rgba(34, 34, 34, 0.8)); }
+  body.bg-img-alt {
+    background: url(../img/backgroundAlt.jpg);
+    background-attachment: fixed;
+    background-size: cover; }
+    body.bg-img-alt:after {
+      content: "";
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: linear-gradient(#222222, rgba(34, 34, 34, 0.8)); }
 
 h1,
 h2,
@@ -143,13 +158,18 @@ h3 {
   h2.lg-heading,
   h3.lg-heading {
     font-size: 6rem; }
+    h1.lg-heading .last-name,
+    h2.lg-heading .last-name,
+    h3.lg-heading .last-name {
+      display: inline-block;
+      white-space: nowrap; }
   h1.sm-heading,
   h2.sm-heading,
   h3.sm-heading {
     margin-bottom: 2rem;
-    padding: 0.2rem 1rem;
+    padding: 0.2rem 2rem;
     font-size: 1.6rem;
-    background: rgba(73, 73, 73, 0.5); }
+    background: linear-gradient(to right, rgba(21, 21, 21, 0.5), rgba(21, 21, 21, 0)); }
 
 a {
   color: #fff;
@@ -161,7 +181,13 @@ header {
   width: 100%; }
 
 .text-secondary {
-  color: #eece1a; }
+  color: #fab575; }
+
+.text-tertiary {
+  color: #356282; }
+
+.text-reset {
+  color: #e4e2dd; }
 
 main {
   padding: 10vh 10vw;
@@ -172,9 +198,16 @@ main {
       padding: 0.4rem;
       transition: all 0.5s ease-out; }
       main .icons a:hover {
-        color: #eece1a; }
+        color: #356282; }
   main#home {
     overflow: hidden; }
+    main#home .text-tertiary {
+      color: #356282;
+      font-weight: 200;
+      font-size: 1.2em;
+      margin: -1rem; }
+    main#home .sm-heading {
+      color: #fab575; }
     main#home h1 {
       margin-top: 20vh; }
 
@@ -187,7 +220,7 @@ main {
     grid-area: bioimage;
     margin: auto;
     border-radius: 50%;
-    border: #eece1a 3px solid;
+    border: #fab575 3px solid;
     max-width: 30vw; }
   .about-info .bio {
     grid-area: bio;
@@ -199,22 +232,25 @@ main {
   .about-info .job-3 {
     grid-area: job3; }
   .about-info .job {
-    background: #515151;
+    background: #2f2f2f;
     padding: 0.5rem;
-    border-bottom: #eece1a 5px solid; }
+    border-bottom: #356282 5px solid;
+    box-shadow: 0px 10px 5px rgba(21, 21, 21, 0.75); }
 
 .project-box {
   display: grid;
   gap: 0.7rem;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); }
   .project-box .project {
-    display: none; }
+    opacity: 0;
+    transition: all 0.5s ease-out; }
   .project-box img {
     width: 100%;
-    border: 3px #fff solid; }
+    border: 3px #fff solid;
+    box-shadow: 0px 10px 5px rgba(21, 21, 21, 0.75); }
     .project-box img:hover {
       opacity: 0.5;
-      border: 3px #eece1a solid;
+      border: 3px #fab575 solid;
       transition: all 0.5s ease-out; }
 
 .boxes {
@@ -231,38 +267,44 @@ main {
     transition: all 0.5s ease-out; }
     .boxes div:hover {
       padding: 1.5rem 2.5rem;
-      background: #eece1a;
-      color: #292929; }
+      background: #fab575;
+      color: #292929;
+      box-shadow: 0px 10px 5px -10px rgba(21, 21, 21, 0.8); }
       .boxes div:hover span {
         color: #292929; }
 
 .btn, .btn-dark, .btn-light {
   display: block;
   padding: 0.5rem 1rem;
-  border: 0;
+  position: relative;
+  border: 1px #151515 solid;
+  box-shadow: 0px 8px 5px -1px rgba(21, 21, 21, 0.8);
   margin-bottom: 0.3rem; }
   .btn:hover, .btn-dark:hover, .btn-light:hover {
-    background-color: #eece1a;
+    background-color: #fab575;
     color: #292929;
     transition: all 0.5s ease-out; }
 
 .btn-dark {
-  background: black;
-  color: #fff; }
+  background: #356282;
+  color: #e4e2dd; }
 
 .btn-light {
-  background: #c4c4c4;
-  color: #333; }
+  background: #a2a2a2;
+  color: #222; }
 
 #main-footer {
   text-align: center;
   padding: 0.5rem;
-  background: #2b2b2b;
-  color: #f6f6f6;
+  background: #090909;
+  color: #e4e2dd;
   font-weight: 400;
   height: 60px; }
   #main-footer a {
     padding: 0.5em; }
+    #main-footer a:hover {
+      transition: all 0.5s ease-out;
+      color: #447da6; }
 
 @media screen and (max-width: 768px) {
   main {
