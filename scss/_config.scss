@@ -11,6 +11,11 @@ $background-opacity: 0.8;
   transition: all 0.5s ease-out;
 }
 
+@mixin smoothBoxShadow {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -61,28 +66,25 @@ $background-opacity: 0.8;
   }
 }
 
-// Spinner
-.spinner:before {
-  content: "";
-  box-sizing: border-box;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  height: 80px;
-  width: 80px;
-  margin-top: -40px;
-  margin-left: -40px;
-  border-radius: 50%;
-  border: 4px solid rgba(darken($primary-color, 10), 0.5);
-  border-left-color: $secondary-color;
-  border-right-color: $secondary-color;
-  animation: spinner 1.5s linear infinite;
+// Scroll bar customization
+::-webkit-scrollbar {
+  width: 9px;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
 }
-
-@keyframes spinner {
-  to {
-    transform: rotate(360deg);
-  }
+::-webkit-scrollbar:hover {
+  background-color: rgba(darken($primary-color, 50), 0.15);
+}
+::-webkit-scrollbar-thumb:vertical {
+  background: rgba(lighten($primary-color, 40), 0.5);
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
+}
+::-webkit-scrollbar-thumb:vertical:active {
+  background: rgba(lighten($primary-color, 20), 0.61);
+  border-radius: 1px;
+  -webkit-border-radius: 1px;
 }
 
 // Set text color based on background

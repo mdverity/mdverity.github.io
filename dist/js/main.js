@@ -4,6 +4,7 @@ const menu = document.querySelector('.menu');
 const menuNav = document.querySelector('.menu-nav');
 const menuBranding = document.querySelector('.menu-branding');
 const navItems = document.querySelectorAll('.nav-item');
+const projectItems = document.querySelectorAll('.project')
 
 // Initialize menu state
 let showMenu = false;
@@ -11,8 +12,24 @@ let pageLoaded = false;
 
 menuBtn.addEventListener('click', toggleMenu);
 
-// window.addEventListener('load', toggleSpinner)
-setTimeout(toggleSpinner, 1500)
+if(document.getElementById('home')) {
+    for(i = 0; i <= 50; i++) {
+        var baseDiv = document.createElement("div");
+        baseDiv.classList.add("circle-container");
+        var innerDiv = document.createElement("div");
+        innerDiv.classList.add("circle");
+        baseDiv.appendChild(innerDiv);
+
+        var element = document.getElementById("home");
+        element.insertBefore(baseDiv, element.firstElementChild);
+    }
+}
+
+if(document.getElementById('work')) {
+    // window.addEventListener('load', toggleSpinner)    
+    // Timer to test spinner
+    setTimeout(toggleSpinner, 1500)
+}
 
 function toggleMenu() {
     if(!showMenu) {
@@ -38,14 +55,11 @@ function toggleMenu() {
 
 function toggleSpinner() {
     if(!pageLoaded) {
-        // document.querySelector('.projects').classList.remove(spinnerType)
         document.querySelector('.project-box').classList.remove('spinner')
-        let projectItems = document.querySelectorAll('.project')
         projectItems.forEach(item => item.style.opacity = "1");
         pageLoaded = true;
     } else {
         document.querySelector('.project-box').classList.add('spinner')
-        let projectItems = document.querySelectorAll('.project')
         projectItems.forEach(item => item.style.opacity = '0');
         pageLoaded = false;
     }

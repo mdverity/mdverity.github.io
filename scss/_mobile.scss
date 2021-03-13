@@ -16,6 +16,10 @@
       line-height: 1;
       margin-bottom: 1rem;
     }
+
+    .sm-heading {
+      background: rgba(darken($primary-color, 5), 0.5);
+    }
   }
 
   ul.menu-nav,
@@ -46,6 +50,7 @@
     .portrait {
       background: url("../img/portrait_small.jpg");
       background-size: cover;
+      background-position: center;
       width: 150px;
       height: 150px;
     }
@@ -60,11 +65,42 @@
       "job3";
     grid-template-columns: 1fr;
   }
+
+  .boxes {
+    div {
+      font-size: 3vw;
+    }
+  }
 }
 
 // Smartphones
 @include mediaSm {
   main#home h1 {
     margin-top: 10vh;
+  }
+
+  main {
+    padding: 10vh 5vw;
+    .lg-heading {
+      padding: 0.5rem 2rem;
+      font-size: 4rem;
+    }
+
+    .sm-heading {
+      padding: 0.5rem 2rem;
+      font-size: 1rem;
+    }
+  }
+
+  .boxes {
+    div {
+      overflow: hidden;
+      font-size: 5vw;
+      padding: 0.5rem 1.5rem;
+
+      &:hover {
+        padding: 1rem 2rem;
+      }
+    }
   }
 }
