@@ -8,7 +8,7 @@ body {
   color: set-text-color($primary-color);
   height: 100%;
   margin: 0;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   line-height: 1.5;
   &#home {
     overflow: hidden;
@@ -37,7 +37,7 @@ h3 {
 
   &.sm-heading {
     margin-bottom: 2rem;
-    padding: 0.25rem 2rem;
+    padding: 0.25rem 2rem 0.4rem;
     font-size: 1.6rem;
     text-shadow: -2px 2px 3px rgba(darken($primary-color, 7), 0.5);
     background: linear-gradient(
@@ -102,6 +102,7 @@ main {
 
     .sm-heading {
       color: $secondary-color;
+      word-spacing: 1.2rem;
     }
 
     h1 {
@@ -123,7 +124,7 @@ main {
     grid-area: bioimage;
     margin: auto;
     border-radius: 50%;
-    border: rgba($tertiary-color, 0.25) 3px solid;
+    border: rgba($tertiary-color, 0.5) 3px solid;
     max-width: 30vw;
   }
 
@@ -148,7 +149,7 @@ main {
   .job {
     background: $primary-color;
     padding: 0.5rem;
-    border-bottom: $tertiary-color 5px solid;
+    border-bottom: rgba($tertiary-color, 0.5) 5px solid;
     @include smoothBoxShadow;
   }
 }
@@ -210,6 +211,7 @@ main {
   display: block;
   padding: 0.5rem 1rem;
   position: relative;
+  font-size: 18px;
   border: 1px darken($primary-color, 5) solid;
   box-shadow: 0px 8px 5px -1px rgba(darken($primary-color, 5), 0.8);
   margin-bottom: 0.3rem;

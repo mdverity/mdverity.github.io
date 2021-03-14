@@ -13,7 +13,7 @@ let pageLoaded = false;
 menuBtn.addEventListener('click', toggleMenu);
 
 if(document.getElementById('home')) {
-    for(i = 0; i <= 50; i++) {
+    for(i = 0; i <= 10; i++) {
         var baseDiv = document.createElement("div");
         baseDiv.classList.add("circle-container");
         var innerDiv = document.createElement("div");

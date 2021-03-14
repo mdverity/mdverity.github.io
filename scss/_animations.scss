@@ -1,6 +1,6 @@
 // Random Circles
 .circle-container {
-  $particleNum: 200;
+  $particleNum: 10;
   $particleColor: rgb(255, 255, 255);
   z-index: -1;
   position: absolute;
@@ -25,11 +25,9 @@
       0% {
         opacity: 1;
       }
-
       50% {
         opacity: 0.7;
       }
-
       100% {
         opacity: 1;
       }
@@ -39,53 +37,42 @@
       0% {
         transform: scale3d(0.4, 0.4, 1);
       }
-
       50% {
         transform: scale3d(2.2, 2.2, 1);
       }
-
       100% {
         transform: scale3d(0.4, 0.4, 1);
       }
     }
   }
 
-  $particleBaseSize: 8;
+  $particleBaseSize: 6;
 
   @for $i from 1 through $particleNum {
     &:nth-child(#{$i}) {
-      $circleSize: random($particleBaseSize);
+      $circleSize: 1 + random($particleBaseSize);
       width: $circleSize + px;
       height: $circleSize + px;
 
-      $startPositionY: random(10) + 100;
+      $startPositionY: random(10);
       $framesName: "move-frames-" + $i;
-      $moveDuration: 28000 + random(9000) + ms;
+      $moveDuration: 10000 + random(10000) + ms;
 
       animation-name: #{$framesName};
       animation-duration: $moveDuration;
-      animation-delay: random(37000) + ms;
+      animation-delay: random(5000) + ms;
 
       @keyframes #{$framesName} {
         from {
-          transform: translate3d(
-            #{random(100) + vw},
-            #{- $startPositionY + vh},
-            0
-          );
+          transform: translate3d(#{random(100) + vw}, #{0 + vh}, 0);
         }
-
         to {
-          transform: translate3d(
-            #{random(100) + vw},
-            #{$startPositionY + random(30) + vh},
-            0
-          );
+          transform: translate3d(#{random(100) + vw}, #{random(150) + vh}, 0);
         }
       }
 
       .circle {
-        animation-delay: random(4000) + ms;
+        animation-delay: 1000 + random(3000) + ms;
       }
     }
   }
